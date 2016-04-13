@@ -7,7 +7,7 @@ Using space data.
     2. classify detail categories using space texts.
 
 date: 2016/03/23 周三
-author: hiber_niu@163.com
+author: hiber.niu@gmail.com
 '''
 
 from util.mongo_util import MongoUtil
@@ -79,7 +79,7 @@ def get_detail_content_category():
     contents = []
     categories = []
 
-    results = MongoUtil('cn_classify', 'space', '192.168.200.10').find()
+    results = MongoUtil('cn_classify', 'space', '*.*.*.*').find()
     for row in results:
         contents.append(row['content'])
         category = row['category']
@@ -102,7 +102,7 @@ def get_detail_content_category():
 
 
 def get_test_mrdt():
-    cur = MysqlUtil('192.168.200.10', 'bdscontent', 'bdsdata', '357135')
+    cur = MysqlUtil('*.*.*.*', 'bdscontent', 'user', '******')
     query = 'SELECT * FROM mrdt'
     results = cur.get_query_results(query)
     contents = []
