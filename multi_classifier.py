@@ -4,7 +4,7 @@ Chinese text multiple classification.
 Using DSTI data.
 
 date: 2016/03/18 周五
-author: hiber_niu@163.com
+author: hiber.niu@gmai.com
 '''
 from util.mongo_util import MongoUtil
 import html2text
@@ -50,7 +50,7 @@ def get_content_category():
     contents = []
     categories = []
 
-    results = MongoUtil('cn_classify', 'dsti', '192.168.200.10').find()
+    results = MongoUtil('cn_classify', 'dsti', '192.168.*.*').find()
     for row in results:
         if len(row['text']) <= 0:
             continue
@@ -75,7 +75,7 @@ def get_content_category():
 '''
 def get_content_category():
     # get non-space articles
-    cur = MysqlUtil('211.166.64.151', 'crawl', 'lw', '357190')
+    cur = MysqlUtil('*.*.*.*', 'crawl', 'user', '****')
     query = 'SELECT * FROM base3 WHERE site_name="DSTI"'
     results = cur.get_query_results(query)
     contents = []
@@ -150,7 +150,7 @@ def test_module():
     categories = []
     titles = []
 
-    results = MongoUtil('cn_classify', 'test', '192.168.200.10').find()
+    results = MongoUtil('cn_classify', 'test', '*.*.*.*').find()
     for row in results:
         if len(row['text']) <= 0:
             continue
